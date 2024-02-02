@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-configuration PUBLIC "-//Hibernate/Hibernate Configuration DTD 3.0//EN"
+        "http://www.hibernate.org/dtd/hibernate-configuration-3.0.dtd">
+<hibernate-configuration>
+    <session-factory>
+        <!--        <property name="hibernate.dialect">org.hibernate.dialect.MySQLDialect</property>-->
+        <property name="hibernate.connection.driver_class">com.mysql.cj.jdbc.Driver</property>
+        <!-- url de conexión con parámetro adicional para que cree la bbdd si no existe-->
+        <property name="hibernate.connection.url">
+            jdbc:mysql://localhost:3306/orm_ejemplo_trabajando?createDatabaseIfNotExist=true
+        </property>
+        <property name="hibernate.connection.username">root</property>
+        <property name="hibernate.connection.password">1234</property>
+        <property name="hibernate.dialect.storage_engine">innodb</property>
+        <!-- Muestra por consola las sentencias sql que lanza -->
+        <property name="hibernate.show_sql">true</property>
+        <property name="hibernate.format_sql">true</property>
+        <!-- Borra y vuelve a crear las tablas en la bbdd. No usar en producción -->
+        <property name="hibernate.hbm2ddl.auto">create</property>
+
+        <!-- Mapeo de las classes persistentes-->
+
+        <mapping class="dam.jmdh.entities.Cliente"/>
+        <mapping class="dam.jmdh.entities.DatosCliente"/>
+        <mapping class="dam.jmdh.entities.Factura"/>
+        <mapping class="dam.jmdh.entities.LineasFactura"/>
+
+
+    </session-factory>
+</hibernate-configuration>
